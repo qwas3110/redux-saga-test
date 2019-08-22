@@ -9,6 +9,18 @@ class App extends React.Component {
 
 
   render() {
+    const { isFetching, error, user } = this.props.user;
+
+    let data;
+
+    if (error) {
+        data = error
+    } else if (isFetching) {
+        data = 'Loading...'
+    } else {
+        data = user && user.data[0].name
+    }
+
     return (
         <div className="App">
             <p>{this.props.counter}</p>
@@ -19,7 +31,7 @@ class App extends React.Component {
               <button onClick={this.props.incrementAsync}>Async</button>
               <button onClick={this.props.get_user}>getUser</button>
             </p>
-
+            <h1>{data}</h1>
         </div>
     );
   }
@@ -29,7 +41,8 @@ class App extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    counter: state.counter
+    counter: state.counter,
+    user: state.user
   }
 }
 
