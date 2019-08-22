@@ -1,15 +1,11 @@
-import {ADD_NUM} from "../actions/counter";
+import { INCREMENT,INCREMENT_ASYNC } from '../constants/counter';
 
-
-const counter = (state = 1, action ) => {
-    switch (action.type) {
-        case ADD_NUM :
-            return  state + 1;
-        default :
-            return state;
+const counter = (state = 1, action = {}) => {
+    switch(action.type) {
+        case INCREMENT:
+            return state + 1;
+        default: return state;
     }
-};
+}
 
-
-
-export default counter
+export default counter;

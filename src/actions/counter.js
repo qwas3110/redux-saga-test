@@ -1,7 +1,14 @@
-export const ADD_NUM = 'ADD_NUM';
+import { INCREMENT, INCREMENT_ASYNC } from '../constants/counter';
 
 export const increment = () => {
     return {
-        type: ADD_NUM
+        type: INCREMENT
+    }
+};
+
+
+export const incrementAsync = () => {
+    return {
+        type: INCREMENT_ASYNC
     }
 };

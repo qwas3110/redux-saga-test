@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import {composeWithDevTools} from "redux-devtools-extension";
 import createSagaMiddleware from 'redux-saga'
-import {helloSaga} from "./sagas";
+import {watchIcrementAsync} from "./sagas";
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -20,7 +20,7 @@ const store = createStore(
     )
 );
 
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(watchIcrementAsync);
 
 ReactDOM.render(
     <Provider store={store}>
