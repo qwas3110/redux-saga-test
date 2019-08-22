@@ -1,4 +1,4 @@
-import {FETCH_USER_REQUEST,FETCH_USER_SUCCEEDED} from "../constants/user";
+import {FETCH_USER_REQUEST,FETCH_USER_SUCCEEDED,FETCH_USER_FAILURE} from "../constants/user";
 
 const initialState = {
     isFetching: false,
@@ -19,9 +19,15 @@ const user = (state = initialState, action) => {
                 isFetching: false,
                 error: null,
                 user: action.user
-            }
+            };
+        case FETCH_USER_FAILURE :
+            return  {
+                isFetching: false,
+                error: action.error,
+                user: null
+            };
         default: return state;
     }
-}
+};
 
 export default user;
