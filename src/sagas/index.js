@@ -1,12 +1,12 @@
-import { takeEvery, put, delay} from 'redux-saga/effects'
+import { takeEvery, put, call} from 'redux-saga/effects'
 import {INCREMENT_ASYNC,INCREMENT} from "../constants/counter";
 import {increment} from "../actions/counter";
 
-// const delay = (ms) => new Promise(resolve => setTimeout(resolve,ms));
+const delay = (ms) => new Promise(resolve => setTimeout(resolve,ms));
 
 
 function* incrementAsync() {
-    yield delay(2000);
+    yield call(delay,2000);
     yield put({type: INCREMENT})
     // yield put(increment())  也可以这么写
 }
