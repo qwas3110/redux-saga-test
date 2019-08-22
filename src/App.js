@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import {increment, incrementAsync} from "./actions/counter";
+import {get_user} from "./actions/user";
 
 class App extends React.Component {
 
@@ -10,19 +11,14 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
             <p>{this.props.counter}</p>
             <p>
               <button onClick={this.props.increment}>+</button>
             </p>
             <p>
               <button onClick={this.props.incrementAsync}>Async</button>
+              <button onClick={this.props.get_user}>getUser</button>
             </p>
-          </header>
 
         </div>
     );
@@ -40,5 +36,5 @@ function mapStateToProps (state) {
 
 export default connect(
     mapStateToProps,
-    {increment, incrementAsync}
+    {increment, incrementAsync, get_user}
 )(App)
