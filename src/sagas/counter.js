@@ -13,6 +13,10 @@ function* incrementAsync() {
 }
 
 // 监听该actionn  并触发函数
-export function* watchIcrementAsync () {
+function* watchIcrementAsync () {
     yield takeEvery(INCREMENT_ASYNC, incrementAsync);
-};
+}
+
+export const counterSagas = [
+    watchIcrementAsync()
+];
